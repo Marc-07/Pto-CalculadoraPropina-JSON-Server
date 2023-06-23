@@ -1,0 +1,88 @@
+{
+    "platillos": [
+        {
+            "id": 1,
+            "nombre": "Salchipapa",
+            "precio": 20000,
+            "categoria": 1
+        },
+
+        {
+            "id": 2,
+            "nombre": "Arroz de Camarón",
+            "precio": 15000,
+            "categoria": 1
+        },
+
+        
+        {
+            "id": 3,
+            "nombre": "Café Colombiano",
+            "precio": 5000,
+            "categoria": 2
+        },
+
+        {
+            "id": 4,
+            "nombre": "Sancocho de Pescado",
+            "precio": 25000,
+            "categoria": 1
+        },
+
+        {
+            "id": 5,
+            "nombre": "Arepa e' Huevo",
+            "precio": 3000,
+            "categoria": 3
+        },
+
+        {
+            "id": 6,
+            "nombre": "Bandeja Paisa",
+            "precio": 35000,
+            "categoria": 1
+        },
+
+        {
+            "id": 7,
+            "nombre": "Pollo Asado",
+            "precio": 18000,
+            "categoria": 1
+        },
+
+        {
+            "id": 8,
+            "nombre": "Limonada",
+            "precio": 10000,
+            "categoria": 2
+        },
+
+        {
+            "id": 9,
+            "nombre": "Cerveza Club Colombia",
+            "precio": 7000,
+            "categoria": 2
+        },
+
+        {
+            "id": 10,
+            "nombre": "Coctel de Camarón",
+            "precio": 12000,
+            "categoria": 3
+        },
+
+        {
+            "id": 11,
+            "nombre": "Tazón de Frijoles",
+            "precio": 20000,
+            "categoria": 1
+        },
+
+        {
+            "id": 12,
+            "nombre": "Carabañola",
+            "precio": 3000,
+            "categoria": 3
+        }
+    ]
+}
