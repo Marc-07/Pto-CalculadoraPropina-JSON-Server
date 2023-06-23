@@ -33,7 +33,17 @@ function guardarCliente(){
         return
     }
     
-    console.log('Todos los campos están llenos');
+    // Asignar datos del formulario a Cliente
+    cliente = {...cliente, mesa, hora}
+
+    // console.log(cliente);
+
+    //Ocultar Modal
+
+    const modalFormulario = document.querySelector('#formulario');
+    const modalBootstrap = bootstrap.Modal.getInstance(modalFormulario);
+    modalBootstrap.hide();
+
     
 
 }
