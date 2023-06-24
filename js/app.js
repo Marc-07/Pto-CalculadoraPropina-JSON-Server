@@ -152,6 +152,9 @@ function agregarPlatillo(producto){
         
     }
 
+    //Limpiar el código previo
+    limpiarHTML();
+
     //Mostrar el resumen
     actualizarResumen();
 }
@@ -160,7 +163,7 @@ function actualizarResumen (){
     const contenido = document.querySelector('#resumen .contenido');
 
     const resumen = document.createElement('DIV');
-    resumen.classList.add('col-md-6');
+    resumen.classList.add('col-md-6', 'card', 'py-5', 'px-3', 'shadow');
 
     //Información de la Mesa
     const mesa = document.createElement('P');
@@ -184,8 +187,73 @@ function actualizarResumen (){
     mesa.appendChild(mesaSpan);
     hora.appendChild(horaSpan);
 
-    //Agregar al contenido
-    contenido.appendChild(mesa);
-    contenido.appendChild(hora);
+    //Titulo 
+    const heading = document.createElement('H3');
+    heading.classList.add('my-4', 'text-center');
+    heading.textContent = 'Platillos consumidos'
+
+    //Iterar sobre el array de pedidos
+    const grupo = document.createElement('UL');
+    grupo.classList.add('list-group');
+
+    const {pedido} = cliente;
+    pedido.forEach(articulo => {
+        const {nombre, precio,cantidad, id} = articulo;
+
+        const lista = document.createElement('LI');
+        lista.classList.add('list-group-item');
+        
+        const nombreEL = document.createElement('H4');
+        nombreEL.classList.add('my-4');
+        nombreEL.textContent = nombre;
+
+        //Cantidad del producto
+        const cantidadEl = document.createElement('P');
+        cantidadEl.classList.add('fw-bold');
+        cantidadEl.textContent = 'Cantidad: ';
+
+        const cantidadValor = document.createElement('SPAN');
+        cantidadValor.classList.add('fw-normal');
+        cantidadValor.textContent = cantidad;
+
+        
+        //Precio del producto
+        const precioEl = document.createElement('P');
+        precioEl.classList.add('fw-bold');
+        precioEl.textContent = 'Precio: ';
+
+        const precioValor = document.createElement('SPAN');
+        precioValor.classList.add('fw-normal');
+        precioValor.textContent = `$${precio}`;
+
+        //Agregar valores a los contenedores
+        cantidadEl.appendChild(cantidadValor);
+        precioEl.appendChild(precioValor);
+
+        //Agregar elementos al LI
+        lista.appendChild(nombreEL);
+        lista.appendChild(cantidadEl);
+        lista.appendChild(precioEl);
+
+        //Agregar lista al grupo principal
+        grupo.appendChild(lista);
+    });
+
     
+    //Agregar al contenido
+    resumen.appendChild(mesa);
+    resumen.appendChild(hora);
+    resumen.appendChild(heading);
+    resumen.appendChild(grupo);
+
+    contenido.appendChild(resumen);
+    
+}
+
+function limpiarHTML(){
+    const contenido = document.querySelector('#resumen .contenido');
+
+    while(contenido.firstChild){
+        contenido.removeChild(contenido.firstChild);
+    }
 }
