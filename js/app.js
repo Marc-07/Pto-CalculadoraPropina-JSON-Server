@@ -57,14 +57,29 @@ function mostrarSecciones() {
 }
 
 
-function obtenerPlatillos() {
+async function obtenerPlatillos() {
     const url = 'http://localhost:4000/platillos';
     
-    fetch(url)
-        .then( respuesta => respuesta.json())
-        .then( resultado => mostrarPlatillos(resultado))
-        .catch(error => console.log(error))
+    // fetch(url)
+    //     .then( respuesta => respuesta.json())
+    //     .then( resultado => mostrarPlatillos(resultado))
+    //     .catch(error => console.log(error));
+
+    try {
+
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
+        mostrarPlatillos(resultado)
+        
+    } catch (error) {
+        
+        console.log(error)
+    }
+
+   
 }
+
+
 
 function mostrarPlatillos(platillos) {
     const contenido = document.querySelector('#platillos .contenido');
